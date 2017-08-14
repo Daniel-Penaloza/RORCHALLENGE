@@ -22,11 +22,11 @@ ActiveRecord::Schema.define(version: 20170814203950) do
     t.string "name"
     t.float "price"
     t.string "summary"
+    t.string "description"
+    t.string "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
-    t.integer "category_id"
-    t.string "description"
   end
 
   create_table "users", force: :cascade do |t|
