@@ -1,0 +1,21 @@
+<nav class="main-nav">
+  <div class="row">
+    <div id="navbar-brand">
+      <%= link_to "Dominical V", root_path %>
+    </div>     
+
+    <ul class="navbar-items">
+      <!--TODO: refactor all this block-->
+      <% if user_signed_in? %>
+        <li> <%= link_to "Logout", destroy_user_session_path, method: :delete %> </li>
+        <% if current_user.try(:type) == "AdminUser" %>
+          <li> <%= link_to "Create a new post", new_post_path %> </li>
+          <!--Todo Create Topic-->
+        <% end %>
+      <%else%>
+        <li> <%= link_to "Login", new_user_session_path %> </li>
+      <% end %>
+      <!--TODO: refactor all this block-->
+    </ul>  
+  </div>
+</nav>
