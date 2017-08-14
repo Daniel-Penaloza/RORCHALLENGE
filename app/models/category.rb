@@ -1,4 +1,4 @@
 class Category < ApplicationRecord
-	has_many :articles
-	has_many :users, :through  => :articles
+	has_many :products
+	has_many :users, :through  => :products
 end
