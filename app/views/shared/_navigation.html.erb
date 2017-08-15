@@ -1,0 +1,22 @@
+<nav>
+  <div class="row">
+    <%= link_to "Brand Name", root_path %>
+    <ul class="main-nav">
+      <li><%= link_to "Sellers", "" %></li>
+      <li><%= link_to "Products", "" %></li>
+      <li><%= link_to "Categories", ""%></li>
+      <% if signed_in? %>
+      <ul>
+      	<li><%= link_to current_user.full_name %></li>
+        <!--TODO: add the caret for display all this list items in a block-->
+      	<li><%= link_to "Check products"%></li>
+      	<li><%= link_to "New product"%></li>
+      	<li><%= link_to "New category"%></li>
+      	<li><%= link_to "Logout", destroy_user_session_path, method: :delete, id: "caret" %></li>
+      </ul>
+      <% else %>
+        <li><%= link_to "Login", new_user_session_path %></li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
