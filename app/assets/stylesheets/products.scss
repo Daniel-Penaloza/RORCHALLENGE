@@ -172,3 +172,87 @@ header {
 /* --------------------------------------------------------*/
 /* ABOUT ME SECTION HOME PAGE */
 /* --------------------------------------------------------*/  
+
+
+/* --------------------------------------------------------*/
+/* SHOW ME VIEW FOR USERS */
+/* --------------------------------------------------------*/  
+
+.image-container {
+  float: left;
+}
+
+.image-container img {
+  border-radius: 50%;
+  border: 1px solid black;
+}
+
+.user-information {
+  margin-left: -30px;
+  color: black;
+  line-height: 30px;
+}
+
+.hi-box {
+  width: 8%;
+  text-align: left;
+  font-size: 220%;
+  margin-bottom: 10px;
+  color: #000;
+  font-weight: 500;
+}
+
+.im-user {
+  font-size: 120%;  
+  color: black;
+}
+
+.full-name-user {
+  font-size: 150%;
+  font-weight: 800;
+  color: #4d4d4d;
+}
+
+.type-of-user {
+  font-weight: 600;
+  color: #4d4d4d;
+}
+
+.show-user hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  opacity: 0.3;
+}
+
+.email-of-user {
+  color: #4d4d4d;
+  font-weight: 500;
+}
+
+.products-of-user,
+.phone-of-user {
+  color: #4d4d4d;
+  font-weight: 500;
+}
+
+.actions {
+  margin-top: 25px;
+}
+
+.btn-actions {
+  border: 2px solid #555;
+  padding: 10px 10px;
+  text-decoration: none;
+  border-radius: 200px;
+  color: #555;
+  font-weight: 500;
+  margin-right: 10px;
+  &:hover {
+    background-color: #4CD762;
+    color: #fff;
+    transition: background-color 0.5s, color 0.5s;
+  }
+}
+/* --------------------------------------------------------*/
+/* SHOW ME VIEW FOR USERS */
+/* --------------------------------------------------------*/  

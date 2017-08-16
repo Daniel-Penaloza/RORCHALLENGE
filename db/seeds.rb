@@ -1,10 +1,12 @@
+@image = File.open(File.join(Rails.root,'app/assets/images/user_image.png'))
+
 @user = Seller.create!(first_name: "seller", last_name: "user", email: "selleruser@test.com", 
-					   password: "asdfasdf", password_confirmation: "asdfasdf")
+					   password: "asdfasdf", password_confirmation: "asdfasdf", image: @image, phone: "(123) 456-7890")
 
 puts "1 seller has been created"
 
 @admin = Admin.create!(first_name: "admin", last_name: "user", email: "adminuser@test.com",
-						password: "asdfasdf", password_confirmation: "asdfasdf")
+						password: "asdfasdf", password_confirmation: "asdfasdf", image: @image, phone: "(098) 765-4321")
 
 puts "1 admin has been created"
 
