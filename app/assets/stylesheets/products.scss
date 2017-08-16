@@ -253,6 +253,76 @@ header {
     transition: background-color 0.5s, color 0.5s;
   }
 }
+
+.edit-user-button {
+  margin-top: 10px;
+  float: left;
+  margin-left: 90px;
+}
 /* --------------------------------------------------------*/
 /* SHOW ME VIEW FOR USERS */
+/* --------------------------------------------------------*/  
+
+
+/* --------------------------------------------------------*/
+/* INDEX VIEW FOR USERS */
+/* --------------------------------------------------------*/ 
+.index-users {
+  float: left;
+  margin-top: 50px;
+  width: 100%;
+}
+
+.user-info-index {
+  float: left;
+  border: 1px solid #4CD762;
+  border-radius: 5px;
+  width: 70%;
+  margin-left: 18%;
+  margin-bottom: 10%;
+  overflow: hidden;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  &:hover {
+    box-shadow: 0 14px 18px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
+}
+
+.user-image-index { 
+  width: 100%;
+  border-bottom: 1px solid #222;
+}
+
+.full-name-user-index a {
+  font-size: 120%;
+  font-weight: 900;
+  color: #4d4d4d;
+  text-decoration: none;
+  &:hover{
+    color: #000;
+    transition: color 0.3s;
+  }
+}
+
+.users-index .type-of-user {
+  font-size: 90%;
+  font-weight: 100;
+}
+
+.user-index-description {
+  padding: 5px 5px;
+  font-weight: 500;
+  font-size: 80%;
+}
+
+.actions-index {
+  margin-top: 20px;
+  margin-bottom: 20px; 
+  padding-left: 5px;
+}
+
+/* --------------------------------------------------------*/
+/* INDEX VIEW FOR USERS */
 /* --------------------------------------------------------*/  

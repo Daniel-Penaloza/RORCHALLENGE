@@ -3,6 +3,9 @@
 		<div class="col span-1-of-3">
 			<div class="image-container">
 				<%= image_tag(@user.image, size: "300x300", alt: "user_image" ) %>
+				<% if current_user || current_user.try(:type) == "AdminUser" %>
+					<%= link_to "Edit User", "", class: "btn-actions edit-user-button", id: "edit_#{@user.id}_user"%>
+				<% end %>
 			</div>
 		</div>
 
