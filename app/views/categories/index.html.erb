@@ -1,0 +1,20 @@
+<br>
+<center><h1> Explore by Category </h1></center>
+<div align="center"></div>
+
+<div class="row">
+  <div class="well col-md-4 col-md-offset-4">
+     <% @categories.each do |cat| %>
+       <br>
+       <h2>Category: <%= cat.name.capitalize %> </h2><br>
+       <%= link_to "Browse category", category_path(cat) %> <br>
+       Products in this category: <%= cat.products.count %> <br>
+       
+       Sellers in this category: Apple, Nokia, Samsung <br>
+       
+        For admins only: <%= link_to "Edit category", edit_category_path(cat)  %>
+        <br>
+        <hr>
+     <% end %>
+  </div>
+</div>
