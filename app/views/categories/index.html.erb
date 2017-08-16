@@ -2,8 +2,13 @@
 <center><h1> Explore by Category </h1></center>
 <div align="center"></div>
 
-<div class="row">
-  <div class="well col-md-4 col-md-offset-4">
+<div class="row container">
+  <div class="well col-md-8 col-md-offset-4">
+    <!-- placeholder <div class="row">
+      <div class="col-md-4 ">    </div>
+      <div class="col-md-8 col-md-offset-4 catcontent"></div>
+    </div> -->
+    
      <% @categories.each do |cat| %>
        <br>
        <h2>Category: <%= cat.name.capitalize %> </h2><br>
@@ -12,7 +17,11 @@
        
        Sellers in this category: Apple, Nokia, Samsung <br>
        
-        For admins only: <%= link_to "Edit category", edit_category_path(cat)  %>
+        For admins only: <br>
+        <%= link_to "Edit category", edit_category_path(cat)  %><br>
+        <%= link_to "Delete category", category_path(cat), method: :delete,
+            data: { confirm: "Are you sure you want to delete this catgory?" }  %>
+        
         <br>
         <hr>
      <% end %>

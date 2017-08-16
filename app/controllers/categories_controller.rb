@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
     
-    before_action :set_category, only: [:edit, :update, :show]
+    before_action :set_category, only: [:edit, :update, :show, :destroy]
 
   def new
     @category = Category.new
@@ -28,8 +28,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @category_goals = @category.goals.paginate(page: params[:page], per_page: 5)
-    
+    @category_products = @category.products
   end
   
   def index
@@ -38,7 +37,9 @@ class CategoriesController < ApplicationController
   end
   
   def destroy
-  
+    @category.destroy
+    #flash[:success] = "Goal successfully deleted!"
+    redirect_to categories_path
   end
 
   private

@@ -1,0 +1,14 @@
+<br>
+<h1> <%= @category.name %></h1>
+
+
+<% if @category.products.any? %>
+<div class="row">
+  <h4 align="center"> Products in the following categories: <%= @category.name.capitalize %></h4>
+  
+  <div align ="center"> 
+  
+    <h4 align="center"> There are no products in the <%= @category.name.capitalize %> category yet! </h4>
+  <% end %>
+  </div>
+</div>
