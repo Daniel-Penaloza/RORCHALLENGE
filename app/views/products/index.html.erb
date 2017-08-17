@@ -1,4 +1,3 @@
-
 <center><h1>Product catalogue</h1></center>
 
 <% @products.each do |product| %>
@@ -16,8 +15,6 @@
                 <% end %>
               <% end %>
             </ul>
-
-          <% end %>
           <br> Category: <%= product.category.name %> <br> 
           Sold by: <%= product.user.first_name %>  <%= product.user.last_name %> <br><br>
           <% if current_user == product.user %>
