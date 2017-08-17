@@ -4,21 +4,27 @@
 <% @products.each do |product| %>
   <div class = "well">
     <div class="row">
-      <div class="col-md-2"></div>
-      <div class"col-md-8">
-          <h3><%= product.name %> </h3><br>
+      <div class = "col-md-2"></div>
+      <div class = "col-md-8">
+          <h3><%= link_to product.name, product_path(product) %> </h3><br>
           <% if product.description.any? %> <br>
           Description:
             <ul>
               <% product.description.each do |desc| %> 
+                <% if desc != "" %>  
                   <li><%= desc %></li>
+                <% end %>
               <% end %>
             </ul>
 
           <% end %>
           <br> Category: <%= product.category.name %> <br> 
           Sold by: <%= product.user.first_name %>  <%= product.user.last_name %> <br><br>
-          <%= link_to "Edit", edit_product_path(product) %>
+          <% if current_user == product.user %>
+            <%= link_to "Edit", edit_product_path(product)%>
+            <%= link_to "Delete",product_path(product), method: :delete,
+                                data: { confirm: "Are you sure about that?"} %>
+          <% end %>
       </div>
     </div>
   </div>

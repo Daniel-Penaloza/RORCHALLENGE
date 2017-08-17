@@ -16,7 +16,7 @@ RSpec.feature "Create Product" do
     fill_in "Name", with: "Memory"
     fill_in "Price", with: "15,00"
     fill_in "Description", with: "Super memory"
-    find("#product_category_id_#{@product1.id}")
+    select("#product_category_id_#{@product1.id}")
     click_button "Create Product"
     expect(page).to have_content("Product has been added to the catalogue")
     expect(page.current_path).to eq(products_path)
