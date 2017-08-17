@@ -9,7 +9,10 @@
   </head>
 
   <body>
-  	<%= render "shared/navigation" %>
-    <%= yield %>
+    <%= render "shared/navigation" %>
+    <section>
+      <%= render  "shared/alert" %>
+      <%= yield %>
+    </section>
   </body>
 </html>
