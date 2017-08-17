@@ -7,6 +7,7 @@
       <div class = "col-md-8">
           <h3><%= link_to product.name, product_path(product) %> </h3><br>
           Description:
+          <% if product.description.any? %>
             <ul>
               <% product.description.each do |desc| %> 
                 <% if desc != "" %>  
@@ -14,6 +15,7 @@
                 <% end %>
               <% end %>
             </ul>
+          <% end %>
           <br> Category: <%= product.category.name %> <br> 
           Sold by: <%= product.user.first_name %>  <%= product.user.last_name %> <br><br>
           <% if current_user == product.user %>

@@ -2,12 +2,15 @@
   <h3> <%= @product.name %> </h3><br>
   Price:<%= number_to_currency(@product.price, unit: "U$") %>
   <br>
-  <b>Summary</b>
+  <b>Summary</b></br>
   <%= @product.summary %>
+  </br>
   <b>Caracteristics:</b>
   <ul>
     <% @product.description.each do |description| %>
-      <li> <%= description %> <li>
+      <% if description != "" %>
+        <li> <%= description %> <li>
+      <% end %>
     <% end %>
   </ul>
   <b>Sold by: <%= @product.user.first_name %></b>
