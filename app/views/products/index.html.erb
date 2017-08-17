@@ -7,15 +7,15 @@
       <div class="col-md-2"></div>
       <div class"col-md-8">
           <h3><%= product.name %> </h3><br>
-          <% if product.description.any? %> <br>
-          Description:
+          <%# if product.description.any? %> <br>
+          Description: <%= product.description %>
             <ul>
-              <% product.description.each do |desc| %> 
-                  <li><%= desc %></li>
-              <% end %>
+              <%# product.description.each do |desc| %> 
+                  <li><%#= desc %></li>
+              <%# end %>
             </ul>
 
-          <% end %>
+          <%# end %>
           <br> Category: <%= product.category.name %> <br> 
           Sold by: <%= product.user.first_name %>  <%= product.user.last_name %> <br><br>
           <%= link_to "Edit", edit_product_path(product) %>

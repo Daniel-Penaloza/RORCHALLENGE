@@ -11,6 +11,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.user_id = current_user.id
+    @product.description.split(',')
     byebug
     if @product.save
       flash[:success] = "Product has been added to the catalogue"
@@ -41,6 +42,6 @@ class ProductsController < ApplicationController
 
   private
     def product_params
-      params.require(:product).permit(:name, :price, description:[], category_id:[])
+      params.require(:product).permit(:category_id, :name, :price, description: [])
     end
   end
