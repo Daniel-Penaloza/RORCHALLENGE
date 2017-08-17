@@ -1,5 +1,8 @@
 class ProductsController < ApplicationController
 
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_product, only: [:show, :edit, :update, :destroy] 
+
   def index
     @products = Product.all
   end
@@ -11,12 +14,11 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.user_id = current_user.id
-    @product.description.split(',')
-    byebug
     if @product.save
       flash[:success] = "Product has been added to the catalogue"
       redirect_to products_path
     else
+      flash[:warning] = "Product has not been added to the catalogue"
       render 'new'
     end
   end
@@ -25,8 +27,8 @@ class ProductsController < ApplicationController
   end
 
   def update
-    @product = Product.find(param[:id])
-    if @product.save
+    @product.description.split(',')    
+    if @product.update(product_params)
       flash[:success] = "Product has been updated"
       redirect_to products_path
     else
@@ -38,10 +40,16 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    @product.destroy
+    flash[:danger] = "product has been removed from the catalogue"
+    redirect_to products_path
   end
 
   private
+    def set_product
+      @product = Product.find(params[:id])      
+    end
     def product_params
-      params.require(:product).permit(:category_id, :name, :price, description: [])
+      params.require(:product).permit(:category_id, :name, :price, :summary, description: [])
     end
   end
