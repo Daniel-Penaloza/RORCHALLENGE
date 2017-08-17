@@ -1,10 +1,20 @@
-@user = Seller.create!(first_name: "seller", last_name: "user", email: "selleruser@test.com", 
-					   password: "asdfasdf", password_confirmation: "asdfasdf")
+@image = File.open(File.join(Rails.root,'app/assets/images/user_image.png'))
 
-puts "1 seller has been created"
+@user = Seller.create!(first_name: "seller", last_name: "user", email: "selleruser@test.com", 
+					   password: "asdfasdf", password_confirmation: "asdfasdf", image: @image, phone: "(123) 456-7890")
+	
+@user_2 = Seller.create!(first_name: "seller", last_name: "user2", email: "selleruser2@test.com", 
+					   password: "asdfasdf", password_confirmation: "asdfasdf", image: @image, phone: "(456) 789-0123")
+
+8.times do |seller|
+	Seller.create!(first_name: "seller #{seller}", last_name: "user #{seller}", email: "seller#{seller}user#{seller}@test.com",
+					password: "asdfasdf", password_confirmation: "asdfasdf", image: @image, phone: "(12#{seller} 456-789)")
+end
+
+puts "10 sellers has been created"
 
 @admin = Admin.create!(first_name: "admin", last_name: "user", email: "adminuser@test.com",
-						password: "asdfasdf", password_confirmation: "asdfasdf")
+						password: "asdfasdf", password_confirmation: "asdfasdf", image: @image, phone: "(098) 765-4321")
 
 puts "1 admin has been created"
 

@@ -10,4 +10,6 @@ class User < ApplicationRecord
 	def full_name
 		(first_name + " " + last_name).titleize
 	end
+
+	mount_uploader :image, UserImageUploader
 end

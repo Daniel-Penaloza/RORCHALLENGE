@@ -14,12 +14,6 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.user_id = current_user.id
-    @product.description.each do |description|
-      if description == ""
-        description = nil
-      end
-    end
-    byebug
     if @product.save
       flash[:success] = "Product has been added to the catalogue"
       redirect_to products_path
