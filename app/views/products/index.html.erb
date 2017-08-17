@@ -6,7 +6,6 @@
       <div class = "col-md-2"></div>
       <div class = "col-md-8">
           <h3><%= link_to product.name, product_path(product) %> </h3><br>
-          <% if product.description.any? %> <br>
           Description:
             <ul>
               <% product.description.each do |desc| %> 
