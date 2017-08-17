@@ -1,2 +1,49 @@
-<h1>Products#new</h1>
-<p>Find me in app/views/products/new.html.erb</p>
+<h3>Add an product to the catalogue</h3>
+<%= render 'shared/error', obj: @product %>
+<div class="row">
+  <div class="col-xs-12">
+    <%= form_for(@product, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+    <div class="form-group">
+      <div class="control-label col-sm-2">
+        <%= f.label :name %>  
+      </div>
+      <div class="col-sm-8">
+        <%= f.text_field :name, class: "form-control", placeholder: "name", autofocus: true %>
+      </div>    
+    </div>
+    <div class="form-group">
+      <div class="control-label col-sm-2">
+        <%= f.label :price %>
+      </div>
+      <div class="col-sm-8">
+        <%= f.number_field :price, class: "form-control", rows: 6, placeholder: "Price"%>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="control-label col-sm-2">
+        <%= f.label :description %>
+      </div>
+      <div class="col-sm-8">
+        <%= f.text_field :description, class: "form-control", rows: 6, placeholder: "Description"%>
+      </div>
+    </div>    
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-offset-2 col-sm-8">
+          <%= f.collection_check_boxes :category_id, Category.all, :id, :name do |cb| %>
+              <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class='col-md-offset-1 col-md-11'>
+        <%= f.submit class: 'btn btn-primary btn-lg pull-right' %> 
+      </div>        
+    </div>
+    <% end %>
+    <div class="col-xs-4 col-xs-offset-4">
+      <%= link_to 'Cancel', root_path, class:"btn btn-primary btn-sm" %>
+    </div>
+  </div>
+</div>
