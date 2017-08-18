@@ -25,17 +25,17 @@ end
 puts "10 categories are been created"
 
 
-Product.create!(name: "Game of thrones", price: 25.75, description: ["War", "Blood", "Politics"], 
+Product.create!(name: "Game of thrones", price: 25.75, summary: "A nice show", description: ["War", "Blood", "Politics"], 
 			    category_id: Category.first.id, user_id: @user.id )
 
 puts "1 book has been created"
 
-Product.create!(name: "Iphone 6", price: 350.99, description: ["The best phone ever made", "Latest technology", "Designed by apple"], 
+Product.create!(name: "Iphone 6", price: 350.99, summary: "An expensive phone", description: ["The best phone ever made", "Latest technology", "Designed by apple"], 
 				category_id: Category.second.id, user_id: @user.id )
 
 puts "1 cellphone has been created"
 
-Product.create!(name: "Television", price: 450.50, description: ["52 inches", "LCD - 3D included", "1 month of warranty"],
+Product.create!(name: "Television", price: 450.50, , summary: "A nice tv",description: ["52 inches", "LCD - 3D included", "1 month of warranty"],
 				category_id: Category.third.id, user_id: @admin.id)
 
 puts "1 television has been created"
