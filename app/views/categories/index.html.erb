@@ -1,7 +1,6 @@
 <center><h1> Explore by Category </h1></center>
-   <% @categories.each do |cat| %>
-    <div class="wellc">
-
+<% @categories.each do |cat| %>
+  <div class="wellc">
     <div class="wrapper">
       <div class="box a"><%= link_to(image_tag("http://www.livecircular.com/wp-content/uploads/2016/10/other-electronic-reviews.jpg"), category_path(cat)) %></div>
       <div class="box b"><h2><%= cat.name.capitalize %> </h2> <br>
@@ -10,7 +9,7 @@
         <b>Sellers who have items in this category:</b> <br> <br>
         <ul>
           <% cat.products.each do |prod| %>
-             <li><%= link_to prod.user.first_name, user_path(prod) %></li>
+              <li><%= link_to prod.user.first_name, user_path(prod) %></li>
           <% end %>
         </ul>
       <% else %>
@@ -25,4 +24,4 @@
     </div>
   </div> 
 
-     <% end %>
+<% end %>

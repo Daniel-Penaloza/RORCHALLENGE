@@ -1,28 +1,31 @@
 <center><h1>Product catalogue</h1></center>
 
 <% @products.each do |product| %>
-  <div class = "well">
-    <div class="row">
-      <div class = "col-md-2"></div>
-      <div class = "col-md-8">
-          <h3><%= link_to product.name, product_path(product) %> </h3><br>
-          Description:
-          <% if product.description.any? %>
-            <ul>
-              <% product.description.each do |desc| %> 
-                <% if desc != "" %>  
-                  <li><%= desc %></li>
-                <% end %>
+  <div class = "wellc">
+    <div class="wrapper">
+      <div class="box a"><%= link_to(image_tag("http://www.livecircular.com/wp-content/uploads/2016/10/other-electronic-reviews.jpg"),
+                                     product_path(product)) %></div>  
+      <div class="box b">
+        <h3><%= link_to product.name, product_path(product) %> </h3><br>
+        Description:
+        <% if product.description.any? %>
+          <ul>
+            <% product.description.each do |desc| %> 
+              <% if desc != "" %>  
+                <li><%= desc %></li>
               <% end %>
-            </ul>
-          <% end %>
-          <br> Category: <%= product.category.name %> <br> 
-          Sold by: <%= product.user.first_name %>  <%= product.user.last_name %> <br><br>
+            <% end %>
+          </ul>
+        <% end %>
+        <div class ="box c"><br> Category: <%= link_to product.category.name, category_path(product.category) %></div>
+        <div class ="box d">Sold by: <%= product.user.first_name %>  <%= product.user.last_name %></div>
+        <div class ="box e">
           <% if current_user == product.user %>
-            <%= link_to "Edit", edit_product_path(product)%>
+            <%= link_to "Edit", edit_product_path(product), class: "btn"%>
             <%= link_to "Delete",product_path(product), method: :delete,
                                 data: { confirm: "Are you sure about that?"} %>
           <% end %>
+        </div>
       </div>
     </div>
   </div>
