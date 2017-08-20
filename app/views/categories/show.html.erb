@@ -4,8 +4,8 @@
 
 <% if @category.products.any? %>
 <div class="wellc">
-  <i>  <%= @category.products.count %> products found in <%= @category.name.capitalize %> </i><br><br>
-      
+  <i><center>  <%= @category.products.count %> products found in <%= @category.name.capitalize %></center>
+ </i><br>
       <% @category.products.each do |p| %>
         <div class="wrapper">
         <div class="box a"><%= link_to(image_tag("http://www.livecircular.com/wp-content/uploads/2016/10/other-electronic-reviews.jpg"), product_path(p)) %></div>
@@ -24,10 +24,10 @@
         <b>Sold by: </b><%= p.user.first_name %>  <%= p.user.last_name %> <br> <%= p.user.phone %>  |  <%= p.user.email %>  <br>
 </div>
         
-        <div class="box c"><p><%= link_to "More from this seller", user_path(p) %></p></div>
+        <div class="box c"><p><%= link_to "More from seller", user_path(p), class: "btn-actions cat-button-box-c" %></p></div>
         <div class="box d"><b><p>Price: £</b> <%= p.price %></div></p>
-        <div class="box e">Admin only: <%= link_to "Edit Product", edit_product_path(p)  %> / <%= link_to "Delete", product_path(p), method: :delete,
-              data: { confirm: "Are you sure you want to delete this product?" }  %></p></div>
+        <div class="box e"><%= link_to "Edit Product", edit_product_path(p), class: "btn-actions cat-button"  %> <%= link_to "Delete", product_path(p), method: :delete,
+              data: { confirm: "Are you sure you want to delete this product?" }, class: "btn-actions cat-button"  %></p></div>
         </div>
         <br>
      <% end %>

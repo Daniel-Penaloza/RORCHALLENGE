@@ -3,19 +3,21 @@
     <%= link_to "Brand Name", root_path %>
     <ul class="main-nav">
       <li><%= link_to "Sellers", users_path %></li>
-      <li><%= link_to "Products", "" %></li>
-      <li><%= link_to "Categories", ""%></li>
+      <li><%= link_to "Products", products_path %></li>
+      <li><%= link_to "Categories", categories_path %></li>
+      
       <% if signed_in? %>
-      <ul>
-      	<li><%= link_to current_user.full_name, user_path(current_user), id: "number_#{current_user.id}_user" %></li>
-        <!--TODO: add the caret for display all this list items in a block-->
-      	<li><%= link_to "Check products"%></li>
-      	<li><%= link_to "New product", new_product_path %></li>
-      	<li><%= link_to "New category"%></li>
-      	<li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
-      </ul>
+        <ul>
+        	<li><%= link_to current_user.full_name, user_path(current_user), id: "number_#{current_user.id}_user" %></li>
+          <!--TODO: add the caret for display all this list items in a block-->
+        	<li><%= link_to "Check products", products_path %></li>
+        	<li><%= link_to "New product", new_product_path %></li>
+        	<li><%= link_to "New category", new_category_path %></li>
+        	<li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+        </ul>
       <% else %>
         <li><%= link_to "Login", new_user_session_path %></li>
+        <li><%= link_to "Sign up", new_user_registration_path %></li>
       <% end %>
     </ul>
   </div>
