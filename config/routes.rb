@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   resources :products
   resources :users
   resources :categories
-  resources :sellers
 
   root to: 'home#index'
 end

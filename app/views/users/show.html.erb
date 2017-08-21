@@ -3,6 +3,9 @@
 		<div class="col span-1-of-3">
 			<div class="image-container">
 				<%= image_tag(@user.image, size: "300x300", alt: "user_image" ) %>
+				<% if current_user || current_user.try(:type) == "AdminUser" %>
+					<%= link_to "Edit User", "", class: "btn-actions edit-user-button", id: "edit_#{@user.id}_user"%>
+				<% end %>
 			</div>
 		</div>
 
@@ -12,20 +15,13 @@
 				<span class="im-user">I'm</span>
 				<span class="full-name-user"> <%= @user.full_name %></span> <br>
 				<span class="type-of-user"><%= @user.type %> User Of The Market!</span>
-				<% if current_user || current_user.try(:type) == "AdminUser" %>
-					<div class="user-actions">
-						<%= link_to "Edit User", edit_user_path(@user), class: "btn-actions", id: "edit_#{@user.id}_user" %>
-						<%= link_to "New Product", "", class: "btn-actions"%>
-						<%= link_to "New Category", "", class: "btn-actions" %>
-					</div>
-				<% end %>
 				<hr />
 				<span class="email-of-user">Email: <%= @user.email %></span><br>
 				<span class="phone-of-user">Phone: <%= @user.phone %></span><br>
 				<span class="products-of-user">Number of products to sell: <%= @user.products.count %></span><br>
 				<div class="actions">
-					<%= link_to "Products to sell", "", class: "btn-actions", id: "btn_products" %>
-					<%= link_to "Categories present", "", class: "btn-actions", id: "btn_categories" %>
+					<%= link_to "Products to sell", "", class: "btn-actions" %>
+					<%= link_to "Categories present", "", class: "btn-actions" %>
 				</div>
 			</div>
 		</div>

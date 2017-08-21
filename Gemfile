@@ -59,4 +59,3 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise', '~> 4.3'
 gem 'carrierwave', '~> 1.1'
 gem 'kaminari', '~> 0.17.0'
-gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
