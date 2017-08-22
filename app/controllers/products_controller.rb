@@ -13,7 +13,8 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    @product.user_id = current_user.id
+    @product.user = current_user
+    @product.description.split(',')
     if @product.save
       flash[:success] = "Product has been added to the catalogue"
       redirect_to products_path
@@ -27,7 +28,7 @@ class ProductsController < ApplicationController
   end
 
   def update
-    @product.description.split(',')    
+    @product.description.split(',')
     if @product.update(product_params)
       flash[:success] = "Product has been updated"
       redirect_to products_path
@@ -47,9 +48,9 @@ class ProductsController < ApplicationController
 
   private
     def set_product
-      @product = Product.find(params[:id])      
+      @product = Product.find(params[:id])
     end
     def product_params
       params.require(:product).permit(:category_id, :name, :price, :summary, description: [])
     end
-  end
+end

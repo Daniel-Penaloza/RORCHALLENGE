@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20170817182844) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.text "summary"
+    t.string "image"
   end
 
   create_table "users", force: :cascade do |t|
